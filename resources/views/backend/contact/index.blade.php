@@ -21,7 +21,7 @@
         <div class="card-header">
             <div class="row">
               <div class="col-12 text-right">
-                <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+                <a href="{{ route('admin.contact.trash')}}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
               </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                       <th>Email</th>
                       <th>Số điện thoại</th>
                       <th>Tiêu đề</th>
-                      <th style="width: 270px">Hành động</th>
+                      <th style="width: 270px">Chức năng</th>
                       <th style="width: 30px">Replay_id</th>
                       <th style="width: 30px">ID</th>
                     </tr>

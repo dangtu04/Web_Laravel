@@ -51,49 +51,10 @@
                 </div>
             </div>
         </div>
+        @yield('header')
     </section>
     <!-- Header end -->
 
-    <!-- Menu start -->
-    <section class="menu bg-main">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa-solid fa-bars text-white fs-3"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-white fs-5 py-1" aria-current="page" href="/">Trang chủ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ url('/gioi-thieu') }}">Giới thiệu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ url('/san-pham') }}">Sản phẩm</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ url('/lien-he') }}">Liên hệ</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown link
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        @yield('header')
-    </section>
-    <!-- Menu end -->
 
     <main>
         @yield('content')

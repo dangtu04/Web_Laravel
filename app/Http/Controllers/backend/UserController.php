@@ -83,6 +83,25 @@ class UserController extends Controller
         }
     }
 
+
+    /**
+     * STATUS
+     */ 
+    public function status(string $id)
+    {
+        $user = User::find($id);
+        if ($user == null) {
+            return redirect()->route('admin.user.index');
+        }
+    
+        $user->status = ($user->status == 2) ? 1 : 2;
+        $user->updated_at = date('Y-m-d H:i:s');
+        $user->updated_by = Auth::id() ?? 1;
+    
+        $user->save(); // Lưu
+        return redirect()->route('admin.user.index');
+    }
+
     /**
      * Display the specified resource.
      */

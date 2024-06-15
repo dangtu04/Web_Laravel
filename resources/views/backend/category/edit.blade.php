@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Chỉnh sửa sản phẩm')
+@section('title', 'Chỉnh sửa danh mục')
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -62,6 +62,9 @@
                   @error('image')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
+                  @if($category->image)
+                    <img src="{{ asset('images/categories/' . $category->image) }}" alt="{{ $category->name }}" style="width: 100px; margin-top: 10px;">
+                  @endif
                 </div>
                 <div class="mb-3">
                   <label for="status">Trạng thái</label>

@@ -22,12 +22,12 @@
             <div class="row">
               <div class="col-12 text-right">
                 <a href="{{ route('admin.post.create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm bài viết</a>
-                <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+                <a href="{{ route('admin.post.trash')}}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
               </div>
             </div>
         </div>
         <div class="card-body">
-          @includeIf('components.message')
+          {{-- @includeIf('components.message') --}}
             <table id="post-table" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">

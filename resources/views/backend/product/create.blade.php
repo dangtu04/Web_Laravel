@@ -21,7 +21,7 @@
     </section>
     <section class="content">
         <div class="card">
-            @includeIf('components.message')
+            {{-- @includeIf('components.message') --}}
             <div class="card-header">
                 <div class="row">
                     <div class="col-12 text-right">

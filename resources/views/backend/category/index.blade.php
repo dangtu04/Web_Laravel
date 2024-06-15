@@ -28,7 +28,7 @@
     
     <div class="card-body">
       
-      @includeIf('components.message')
+      {{-- @includeIf('components.message') --}}
 
       <div class="row">
         <div class="col-md-3">

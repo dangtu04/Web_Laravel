@@ -6,15 +6,18 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./image/slider_1.webp" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./image/slider_2.webp" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./image/slider_3.webp" class="d-block w-100" alt="...">
-        </div>
+        @foreach ($list_slider as $row_slider)
+            @if ($loop->first)
+              <div class="carousel-item active">
+                <img src="{{ asset('images/banners/'.$row_slider->image)}}" class="d-block w-100" alt="{{$row_slider->image}}">
+              </div>
+            @else
+              <div class="carousel-item">
+                <img src="{{ asset('images/banners/'.$row_slider->image)}}" class="d-block w-100" alt="{{$row_slider->image}}">
+              </div>
+            @endif
+        @endforeach
+
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

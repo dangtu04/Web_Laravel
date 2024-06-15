@@ -55,6 +55,25 @@ class MenuController extends Controller
         return view("backend.menu.index", compact('list','list_category','list_brand','list_topic','list_page'));
     }
 
+
+    /**
+     * STATUS
+     */ 
+    public function status(string $id)
+    {
+        $menu = Menu::find($id);
+        if ($menu == null) {
+            return redirect()->route('admin.menu.index');
+        }
+    
+        $menu->status = ($menu->status == 2) ? 1 : 2;
+        $menu->updated_at = date('Y-m-d H:i:s');
+        $menu->updated_by = Auth::id() ?? 1;
+    
+        $menu->save(); // Lưu
+        return redirect()->route('admin.menu.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

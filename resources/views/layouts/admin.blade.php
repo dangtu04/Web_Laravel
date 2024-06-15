@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -201,8 +202,35 @@
   <aside class="control-sidebar control-sidebar-dark">
   </aside>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 <script src=" {{ asset('plugins/jquery/jquery.min.js')}}"></script>
 <script src=" {{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src=" {{ asset('dist/js/adminlte.min.js')}}"></script>
+  <!-- Toast Notification Script -->
+  <script>
+    @if (session('message'))
+        @php
+        $arrMessage = session('message');
+        @endphp
+        $(document).ready(function() {
+          toastr.options = {
+              "closeButton": true,
+              "progressBar": true,
+              "positionClass": "toast-top-right",
+              "timeOut": "3000", 
+              "extendedTimeOut": "1000",
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut",
+              "preventDuplicates": true 
+          };
+            toastr["{{ $arrMessage['type'] }}"]("{{ $arrMessage['msg'] }}");
+        });
+    @endif
+</script>
+
 </body>
 </html>

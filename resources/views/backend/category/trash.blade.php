@@ -28,7 +28,7 @@
     
     <div class="card-body">
       
-      @includeIf('components.message')
+      {{-- @includeIf('components.message') --}}
 
       <table class="table table-bordered">
         <thead>

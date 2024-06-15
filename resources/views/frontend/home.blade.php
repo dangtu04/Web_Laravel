@@ -5,9 +5,13 @@
 @endsection
 @section('content')
 
+    <!-- Menu start -->
+    <x-main-menu/>
+    <!-- Menu end -->
+
     <!-- Slider start -->
     <x-slider/>
-    <!-- Slider end -->
+    <!-- Slider end -->    
 
     <!-- Promotional Product start -->
     <x-promotional-product/>
@@ -18,7 +22,7 @@
     <!-- Promotional Product end -->
 
     <!-- Post start -->
-    <x-post/>
+    <x-last-post/>
     <!-- Post end -->
 @endsection
 

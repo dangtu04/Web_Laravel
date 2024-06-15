@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -28,6 +29,24 @@ class OrderController extends Controller
         ->get();
 
         return view("backend.order.index", compact('list'));
+    }
+
+    /**
+     * STATUS
+     */ 
+    public function status(string $id)
+    {
+        $order = Order::find($id);
+        if ($order == null) {
+            return redirect()->route('admin.order.index');
+        }
+    
+        $order->status = ($order->status == 2) ? 1 : 2;
+        $order->updated_at = date('Y-m-d H:i:s');
+        $order->updated_by = Auth::id() ?? 1;
+    
+        $order->save(); // Lưu
+        return redirect()->route('admin.order.index');
     }
 
 

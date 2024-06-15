@@ -21,13 +21,13 @@
     <div class="card-header">
       <div class="row">
         <div class="col-12 text-right">
-          <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+          <a href="{{ route('admin.brand.trash') }}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
         </div>
       </div>
     </div>
     
      <div class="card-body">
-      @includeIf('components.message')
+      {{-- @includeIf('components.message') --}}
         <div class="row">
           <div class="col-md-3">
             <form action="{{ route('admin.brand.store') }}" method="post" enctype="multipart/form-data">

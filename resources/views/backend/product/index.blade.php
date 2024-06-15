@@ -22,12 +22,12 @@
             <div class="row">
               <div class="col-12 text-right">
                 <a href="{{ route('admin.product.create')}}" class="btn btn-success"><i class="fas fa-plus"></i> Thêm sản phẩm</a>
-                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+                <a href="{{ route('admin.product.trash')}}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
               </div>
             </div>
         </div>
         <div class="card-body">
-          @includeIf('components.message')
+          {{-- @includeIf('components.message') --}}
             <table id="product-table" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">

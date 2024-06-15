@@ -21,12 +21,12 @@
         <div class="card-header">
             <div class="row">
               <div class="col-12 text-right">
-                <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+                <a href="{{ route('admin.banner.trash') }}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
               </div>
             </div>
         </div>
         <div class="card-body"> 
-          @includeIf('components.message')        
+          {{-- @includeIf('components.message')         --}}
           <div class="row">
               <div class="col-md-3">
                   <form action="{{ route('admin.banner.store') }}" method="post" enctype="multipart/form-data">
@@ -83,7 +83,7 @@
                         <th>Tên banner</th>   
                         <th>Liên kết</th>
                         <th>Vị trí</th>
-                        <th style="width: 270px">CHức năng</th>
+                        <th style="width: 270px">Chức năng</th>
                         <th style="width: 30px">ID</th>
                       </tr>
                   </thead>
