@@ -21,23 +21,24 @@
         <div class="card-header">
             <div class="row">
               <div class="col-12 text-right">
-                <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+                <a href="{{ route('admin.user.trash')}}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
               </div>
             </div>
         </div>
         <div class="card-body">
-          @includeIf('components.message')
+          {{-- @includeIf('components.message') --}}
             <table id="contact-table" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">
-                      <th style="width: 30px">#</th>                                                       
+                      <th style="width: 30px">#</th>   
+                      <th style="width: 130px">Hình ảnh</th>                          
                       <th>Tên người dùng</th>
                       <th>Tên đăng nhập</th>
                       <th>Email</th>
                       <th>Số điện thoại</th>
                       <th>Địa chỉ</th>
                       <th>Vai trò</th>
-                      <th style="width: 270px">Hành động</th>
+                      <th style="width: 250px">Chức năng</th>
                       <th style="width: 30px">ID</th>
                     </tr>
                 </thead>
@@ -45,7 +46,8 @@
                   @foreach ($list as $row)
                     <tr>
                       <td class="text-center"><input type="checkbox" style="width: 20px"></td>
-                     <td>{{$row->name}}</td>                  
+                      <td class="text-center"><img src="{{ asset('images/users/'.$row->image) }}" style="width: 100px" alt="{{ $row->image }}"></td>
+                      <td>{{$row->name}}</td>                  
                       <td>{{$row->username}}</td>
                       <td>{{$row->email}}</td>
                       <td>{{$row->phone}}</td>

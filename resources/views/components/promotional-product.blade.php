@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       @foreach ($product_sale as $product_item)
-          <x-card-product-sale :productitem="$product_item"/>  
+          <x-card-product :productitem="$product_item"/>  
       @endforeach
     </div>
   </div>

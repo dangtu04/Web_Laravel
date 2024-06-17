@@ -23,7 +23,7 @@
                </div>
 
                <div class="col-md-6">
-                  @foreach ($post_new->slice(1, 3) as $post) <!-- Lấy 3 bài viết tiếp theo sau bài đầu tiên -->
+                  @foreach ($post_new->slice(1, 3) as $post)
                      <div class="row mb-3">
                         <h3 class="post-title fs-5">
                            <a href="/chi-tiet-bai-viet/{{ $post->slug }}" class="text-main" style="text-decoration: none;">
@@ -36,7 +36,7 @@
                            </a>
                         </div>
                         <div class="col-md-8">                           
-                           <p>{{ \Illuminate\Support\Str::limit($latest_post->detail, 200, '...') }}</p>
+                           <p>{{ \Illuminate\Support\Str::limit($post->detail, 200, '...') }}</p>
                         </div>
                      </div>
                   @endforeach

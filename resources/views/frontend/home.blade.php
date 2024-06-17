@@ -21,6 +21,10 @@
     <x-new-product/>
     <!-- Promotional Product end -->
 
+    <!-- Product Category start -->
+    <x-product-category-home/>
+    <!-- Product Category end -->
+
     <!-- Post start -->
     <x-last-post/>
     <!-- Post end -->

@@ -21,7 +21,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-12 text-right">
-          <a class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
+          <a href="{{ route('admin.menu.trash') }}" class="btn btn-danger"><i class="fas fa-trash"></i> Thùng rác</a>
         </div>
       </div>
     </div>

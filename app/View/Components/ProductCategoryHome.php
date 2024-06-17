@@ -2,12 +2,11 @@
 
 namespace App\View\Components;
 
-use App\Models\Product;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class NewProduct extends Component
+class ProductCategoryHome extends Component
 {
     /**
      * Create a new component instance.
@@ -22,11 +21,6 @@ class NewProduct extends Component
      */
     public function render(): View|Closure|string
     {
-        $product_new = Product::where([['status', '=', '1'],['pricesale', '=', '0']])
-        ->orderBy('created_at', 'desc') // mới nhất
-        ->limit(4) // giới hạn
-        ->get();
-
-    return view('components.new-product', compact('product_new'));
+        return view('components.product-category-home');
     }
 }

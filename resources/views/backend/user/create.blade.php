@@ -58,6 +58,13 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="image">Hình</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                            @error('image')
+                              <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="gender">Giới tính</label>
                             <select name="gender" id="gender" class="form-control">
                                 <option value="1">Nam</option>
