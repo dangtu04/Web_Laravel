@@ -1,15 +1,15 @@
 <div class="col-lg-3">
   <div class="card my-2 product-item" style="width: 19rem;">
-    <img src="{{ asset('./image/ao-thun-den-theu-hoa.jpg') }}" class="card-img-top" alt="...">
+    <img src="{{ asset('images/products/'.$product->image) }}" class="card-img-top" alt="{{ $product->image }}">
     <div class="card-body">
       <h5 class="card-title">{{ \Illuminate\Support\Str::limit($product->name, 25, '...') }}</h5>
       
       @if($product->pricesale > 0)
         <p class="card-text text-main fs-5">
-          <del class="text-dark fs-6">{{ $product->price }}₫</del> {{ $product->pricesale }}₫
+          <del class="text-dark fs-6">{{ number_format($product->price) }}₫</del> {{ number_format($product->pricesale) }}₫
         </p>
       @else
-        <p class="card-text text-main fs-5">{{ $product->price }}₫</p>
+        <p class="card-text text-main fs-5">{{ number_format($product->price) }}₫</p>
       @endif
 
       <div class="row">
@@ -17,7 +17,7 @@
           <a href="#" class="btn bg-main text-white">Mua ngay</a>
         </div>
         <div class="col-7">
-          <a href="chi-tiet-san-pham/{{ $product->slug }}" class="btn bg-light text-main product-showdetail">
+          <a href="{{ route('site.product.detail', ['slug' => $product->slug]) }}" class="btn bg-light text-main product-showdetail">
             <i class="fa-regular fa-eye"></i>
             Xem chi tiết</a>
         </div>

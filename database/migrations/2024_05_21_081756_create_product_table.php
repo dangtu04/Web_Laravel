@@ -21,8 +21,8 @@ return new class extends Migration
             $table->float('pricesale')->nullable();
             $table->string('image', 1000);
             $table->unsignedInteger('qty');
-            $table->mediumText('detail');
-            $table->string('description', 255)->nullable();
+            $table->mediumText('detail',1000);
+            $table->string('description', 1000)->nullable();
             $table->dateTime('created_at');
             $table->unsignedInteger('created_by');
             $table->dateTime('updated_at')->nullable();

@@ -1,5 +1,5 @@
 @extends('layouts.site')
-@section('title', 'Tất cả sản phẩm')
+@section('title', 'Sản phẩm theo danh mục')
 @section('header')
 
 @endsection
@@ -11,6 +11,8 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="http://localhost/DangThanhTu_Laravel_W1/public/" class="text-main">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Tất cả sản phẩm</li>
+                <li class="breadcrumb-item active" aria-current="page">Danh mục</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$row->name}}</li>
             </ol>
         </nav>
     </section>

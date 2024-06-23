@@ -18,7 +18,7 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'required|min:6',
-            'image' => 'nullable|file|mimes:jpg,png,gif,webp',
+            'image' => 'nullable|file|mimes:jpg,png,gif,webp,jfif',
         ];
     }
 
@@ -27,7 +27,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'name.required' => 'Tên danh mục không được trống',
             'name.min' => 'Tên danh mục phải có ít nhất 6 ký tự',
-            'image.mimes' => 'Chỉ có thể nhập các file jpg, png, gif hoặc webp.'
+            'image.mimes' => 'Chỉ có thể nhập các file jpg, png, gif, jfif hoặc webp.'
         ];
     }
 }

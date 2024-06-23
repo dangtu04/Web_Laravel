@@ -1,6 +1,6 @@
 @if (count($list_menu_sub) == 0)
     <li class="nav-item">
-        <a class="nav-link text-white fs-5 py-1" aria-current="page" href="{{$menu->link}}">{{$menu->name}}</a>
+        <a class="nav-link text-white fs-5 py-1" aria-current="page" href="{{ url($menu->link)}}">{{$menu->name}}</a>
     </li>
 
 @else
@@ -10,7 +10,7 @@
         </a>
         <ul class="dropdown-menu">
             @foreach ($list_menu_sub as $row_menu_sub)
-                <li><a class="dropdown-item" href="{{$row_menu_sub->link}}">{{$row_menu_sub->name}}</a></li>
+                <li><a class="dropdown-item" href="{{ url($row_menu_sub->link)}}">{{$row_menu_sub->name}}</a></li>
             @endforeach
         </ul>
     </li>

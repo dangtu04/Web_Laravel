@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- font -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    {{-- toast --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
+    
 <body>
     <!-- Header Start -->
     <section class="header">
@@ -30,9 +36,29 @@
                 <div class="col-md-3">
                     <div class="row">                       
                         <div class="col-8 ps-3 py-2">
-                            <a class="position-relative">
+                            @php
+                                $carts = session('carts', []);
+                                $countqty = (is_array($carts))?count($carts):0;
+                            @endphp
+                            <a href="{{ route('site.cart.index') }}" class="position-relative">
                                 <i class="fa fa-shopping-cart fs-2 text-main"></i>
+                                <span id="showqty" class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-info" style="margin-left: 5px">
+                                    {{ $countqty }}
+                                  </span>
                             </a>
+
+                            {{-- @php
+                                $carts = session('carts', []);
+                                $countqty = (is_array($carts))?count($carts):0;
+                            @endphp
+                            <a href="{{ route('site.cart.index') }}" type="button" class="btn btn-white position-relative" style="margin-top:-8px;">
+                                <i class="fa fa-shopping-cart fs-2 text-main"></i>
+                                <span class="position-absolute  start-100 translate-middle badge rounded-pill bg-info" style="margin: 8px 0 -5px -5px;">
+                                    {{ $countqty }}
+                                </span>
+                              </a>  --}}
+
+                            
                         </div>
                         <div class="col-4">
                             <a type="button" class="position-relative">
@@ -51,12 +77,19 @@
                 </div>
             </div>
         </div>
+
         @yield('header')
     </section>
     <!-- Header end -->
 
 
-    <main>
+    
+    <main>        
+        <!-- Menu start -->
+        <x-main-menu/>
+        <!-- Menu end -->
+       
+
         @yield('content')
     </main>
 
@@ -79,11 +112,11 @@
                         <h2>Follow Us</h2>
                         <div class="contact-info">
                             <div class="social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href=" {{ url('https://x.com/i/flow/login')}}"><i class="fa-brands fa-x-twitter"></i></a>
+                                <a href=" {{ url('https://www.facebook.com/')}}"><i class="fab fa-facebook-f"></i></a>
+                                <a href=" {{ url('https://www.linkedin.com/login')}}"><i class="fab fa-linkedin-in"></i></a>
+                                <a href=" {{ url('https://www.instagram.com/accounts/login/')}}"><i class="fab fa-instagram"></i></a>
+                                <a href=" {{ url('https://www.youtube.com/')}}"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>
@@ -109,22 +142,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row payment align-items-center">
-                <div class="col-md-6">
-                    <div class="payment-method">
-                        <h2>We Accept:</h2>
-                        <img src="{{ asset('image/payment-method.png') }}" alt="Payment Method" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="payment-security">
-                        <h2>Secured By:</h2>
-                        <img src="{{ asset('image/godaddy.svg') }}" alt="Payment Security" />
-                        <img src="{{ asset('image/norton.svg') }}" alt="Payment Security" />
-                        <img src="{{ asset('image/ssl.svg') }}" alt="Payment Security" />
-                    </div>
-                </div>
-            </div>
+          
         </div>
     </section>
     <!-- Footer End -->  

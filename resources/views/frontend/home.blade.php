@@ -4,11 +4,6 @@
 
 @endsection
 @section('content')
-
-    <!-- Menu start -->
-    <x-main-menu/>
-    <!-- Menu end -->
-
     <!-- Slider start -->
     <x-slider/>
     <!-- Slider end -->    
@@ -22,7 +17,7 @@
     <!-- Promotional Product end -->
 
     <!-- Product Category start -->
-    <x-product-category-home/>
+    {{-- <x-product-category-home/> --}}
     <!-- Product Category end -->
 
     <!-- Post start -->

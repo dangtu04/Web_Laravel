@@ -73,8 +73,8 @@ class ProductController extends Controller
             // Upload image
             if ($request->hasFile('image')) {
                 $exten = $request->file('image')->extension();
-                if (in_array($exten, ['jpg', 'png', 'gif', 'webp'])) {
-                    $filename = Str::slug($product->name) . "." . $exten;
+                if (in_array($exten, ['jpg', 'png', 'gif', 'webp', 'jfif'])) {
+                    $filename = $product->slug . "." . $exten;
                     $request->image->move(public_path("images/products"), $filename);
                     $product->image = $filename;
                 } else {
@@ -274,7 +274,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->extension();
 
-            if (in_array($extension, ['jpg', 'png', 'gif', 'webp'])) {
+            if (in_array($extension, ['jpg', 'png', 'gif', 'webp', 'jfif'])) {
                 $filename = $product->slug . '.' . $extension;
                 $request->image->move(public_path('images/products'), $filename);
                 $product->image = $filename;

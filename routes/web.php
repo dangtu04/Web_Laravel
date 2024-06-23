@@ -11,24 +11,33 @@ use App\Http\Controllers\backend\UserController as AdUserController;
 use App\Http\Controllers\backend\ContactController as AdContactController;
 use App\Http\Controllers\backend\ProductController as AdProductController;
 use App\Http\Controllers\backend\OrderController as AdOrderController;
-
-
+use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
-Route::get('/',[HomeController::class ,'index']);
-Route::get('san-pham',[ProductController::class ,'index']);
-Route::get('chi-tiet-san-pham/{slug}',[ProductController::class ,'product_detail']);
+Route::get('/',[HomeController::class ,'index'])->name('site.home');
+Route::get('san-pham',[ProductController::class ,'index'])->name('site.product');
+Route::get('danh-muc/{slug}',[ProductController::class ,'category'])->name('site.product.category');
+Route::get('chi-tiet-san-pham/{slug}',[ProductController::class ,'product_detail'])->name('site.product.detail');
 Route::get('lien-he',[ContactController::class ,'index']);
+
+// Giỏ hàng
+Route::get('gio-hang',[CartController::class ,'index'])->name('site.cart.index');
+Route::get('cart/addcart',[CartController::class ,'addcart'])->name('site.addcart');
+
+// Đăng nhập
+Route::get('dang-nhap',[AuthController::class ,'getlogin'])->name('website.getlogin');
+Route::post('dang-nhap',[AuthController::class ,'dologin'])->name('website.dologin');
 
 // Route::prefix('admin')->group(function () {
 //     Route::get("/", [DashBoardController::class, 'index'])->name('dashboard.index');
 // });
 
 //route admin
-Route::prefix("admin")->group(function(){
+Route::prefix("admin")->middleware("middleware")->group(function(){
     Route::get("/", [DashboardController::class, 'index'])->name('admin.dashboard');
 
 // product

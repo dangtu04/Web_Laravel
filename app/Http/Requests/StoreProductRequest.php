@@ -14,7 +14,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'nullable|file|mimes:jpg,png,gif,webp',
+            'image' => 'nullable|file|mimes:jpg,png,gif,webp,jfif',
             'price' => 'required|numeric|min:1',
         ];
     }
@@ -23,7 +23,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Tên sản phẩm không được trống',
-            'image.mimes' => 'Chỉ có thể nhập các file jpg, png, gif hoặc webp.',
+            'image.mimes' => 'Chỉ có thể nhập các file jpg, png, gif, jfif hoặc webp.',
             'price.required' => 'Giá sản phẩm không được trống',
             'price.numeric' => 'Giá sản phẩm phải là số',
             'price.min' => 'Giá sản phẩm tối thiểu là 1',
